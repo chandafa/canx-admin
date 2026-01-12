@@ -1,0 +1,33 @@
+{
+  "name": "canx-admin",
+  "version": "1.0.0",
+  "description": "Admin panel generator for CanxJS Framework",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "canx-admin": "./bin/canx-admin.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "canxjs",
+    "admin",
+    "generator",
+    "scaffold"
+  ],
+  "author": "CanxJS Team",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "typescript": "^5.0.0",
+    "chalk": "^4.1.2",
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
