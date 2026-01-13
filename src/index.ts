@@ -66,6 +66,28 @@ program
 
     console.log(chalk.blue("\n✨ Admin Panel Generation Complete!"));
     console.log(chalk.gray("   Don't forget to register your routes in routes/web.ts!"));
-  });
+// 5. Dashboard Command
+  program
+    .command('make:dashboard')
+    .description('Generate a Dashboard view using Canx UI')
+    .action(async () => {
+      const cwd = process.cwd();
+      const dashPath = path.join(cwd, 'src', 'resources', 'views', 'admin', 'dashboard.tsx');
+      const { dashboardTemplate } = require('./templates/dashboard');
 
-program.parse();
+      console.log(chalk.blue(`🚀 Generating Admin Dashboard...`));
+      
+      try {
+          await fs.ensureDir(path.dirname(dashPath));
+          if (await fs.pathExists(dashPath)) {
+              console.log(chalk.yellow(`   ⚠️  Dashboard already exists: ${dashPath}`));
+          } else {
+              await fs.writeFile(dashPath, dashboardTemplate());
+              console.log(chalk.green(`   ✅ Created Dashboard: src/resources/views/admin/dashboard.tsx`));
+          }
+      } catch (error) {
+          console.error(chalk.red("   ❌ Error creating dashboard:"), error);
+      }
+    });
+
+  program.parse();
