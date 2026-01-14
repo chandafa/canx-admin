@@ -66,6 +66,8 @@ program
 
     console.log(chalk.blue("\n✨ Admin Panel Generation Complete!"));
     console.log(chalk.gray("   Don't forget to register your routes in routes/web.ts!"));
+  });
+
 // 5. Dashboard Command
   program
     .command('make:dashboard')
